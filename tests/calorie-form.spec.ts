@@ -3,14 +3,14 @@ import { CalorieForm } from './page-objects/calorie-form';
 
 const testPage = 'http://localhost:3000';
 
-test('has form', async ({ page }) => {
+test('when loading the home page, the calories form should be visible', async ({ page }) => {
   await page.goto(testPage);
   const calorieForm = new CalorieForm(page);
 
-  expect(calorieForm.form).toBeVisible();
+  await expect(calorieForm.form).toBeVisible();
 });
 
-test('can input into form and submit successfully', async ({page}) => {
+test('when valid data is entered into the calorie form, it should show a confirmation', async ({page}) => {
   await page.goto(testPage);
   const calorieForm = new CalorieForm(page);
 
@@ -18,5 +18,5 @@ test('can input into form and submit successfully', async ({page}) => {
   await calorieForm.submitData();
 
   const flashMessage = calorieForm.form.getByText(/Record entered successfully/);
-  expect(flashMessage).toBeVisible();
-})
+  await expect(flashMessage).toBeVisible();
+});
