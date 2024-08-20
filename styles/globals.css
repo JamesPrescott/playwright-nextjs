@@ -7,15 +7,33 @@ body {
   background-color: cornflowerblue;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
+
 
 form {
+  
+
   input, label, button {
     display: block;
+  }
+
+  .flash-error, .flash-success {
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+  }
+
+  .flash-error {
+    border: 3px solid rgb(80, 0, 0);
+    background-color: crimson;
+    color: white;
+  }
+
+  .flash-success {
+    border: 3px solid rgb(11, 65, 0);
+    background-color: green;
   }
 
   input {

@@ -17,6 +17,16 @@ test('when valid data is entered into the calorie form, it should show a confirm
   await calorieForm.inputData('testInput', '200');
   await calorieForm.submitData();
 
-  const flashMessage = calorieForm.form.getByText(/Record entered successfully/);
+  const flashMessage = calorieForm.form.getByText(/Calories record created successfully/);
+  await expect(flashMessage).toBeVisible();
+});
+
+test('when invalid data is entered in to the calorie form, it should show an error', async ({page}) => {
+  await page.goto(testPage);
+  const calorieForm = new CalorieForm(page);
+
+  await calorieForm.submitData();
+
+  const flashMessage = calorieForm.form.getByText(/Failed to submit data/);
   await expect(flashMessage).toBeVisible();
 });
