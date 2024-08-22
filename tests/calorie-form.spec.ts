@@ -1,17 +1,15 @@
 import { test, expect } from '@playwright/test';
 import { CalorieForm } from './page-objects/calorie-form';
 
-const testPage = 'http://localhost:3000';
-
 test('when loading the home page, the calories form should be visible', async ({ page }) => {
-  await page.goto(testPage);
+  await page.goto('/');
   const calorieForm = new CalorieForm(page);
 
   await expect(calorieForm.form).toBeVisible();
 });
 
 test('when valid data is entered into the calorie form, it should show a confirmation', async ({page}) => {
-  await page.goto(testPage);
+  await page.goto('/');
   const calorieForm = new CalorieForm(page);
 
   await calorieForm.inputData('testInput', '200');
@@ -22,7 +20,7 @@ test('when valid data is entered into the calorie form, it should show a confirm
 });
 
 test('when invalid data is entered in to the calorie form, it should show an error', async ({page}) => {
-  await page.goto(testPage);
+  await page.goto('/');
   const calorieForm = new CalorieForm(page);
 
   await calorieForm.submitData();
