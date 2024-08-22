@@ -7,22 +7,17 @@ body {
   background-color: cornflowerblue;
 }
 
-
-
 form {
-  
-
-  input, label, button {
+  input, label, div {
     display: block;
+    box-sizing: border-box;
+    width: 20em;
   }
 
   .flash-error, .flash-success {
-    display: block;
     padding: 10px;
     margin: 10px 0;
     text-align: center;
-    overflow-wrap: break-word;
-    box-sizing: border-box;
   }
 
   .flash-error {
@@ -37,12 +32,12 @@ form {
   }
 
   input {
-    box-sizing: border-box;
     padding: 12px 20px;
     margin: 10px 0;
   }
 
   button {
+    display: block;
     padding: 10px;
     background-color: aliceblue;
     border: 3px solid black;

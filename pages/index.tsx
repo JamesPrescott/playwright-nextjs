@@ -12,6 +12,7 @@ export default function Home() {
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
+    setSuccess(null);
     
     try {
       const formData = new FormData(event.currentTarget);
